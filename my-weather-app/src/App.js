@@ -1,14 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { useState, useEffect } from "react";
-
+import Home from "./pages/home/Home";
+import AllWeek from "./pages/allWeek/AllWeek";
 function App() {
   const [weather, setWeather] = useState(null);
-
-  // State to store loading status
   const [isLoading, setIsLoading] = useState(true);
-
-  // State to store any error from the fetch request
   const [error, setError] = useState(null);
 
   const fetchWeather = async () => {
@@ -29,16 +26,11 @@ function App() {
     }
   };
 
-  // useEffect to call fetchWeather when the component mounts
   useEffect(() => {
     fetchWeather();
   }, []);
 
-  return (
-    <div>
- 
-    </div>
-  );
+  return <div className="app">sdf</div>;
 }
 
 export default App;
