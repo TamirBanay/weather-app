@@ -1,0 +1,124 @@
+.allweek-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.allweek-button-and-title {
+  display: flex;
+  flex-direction: row;
+  width: 350px;
+  padding: 18px 24px;
+  /* justify-content: space-between; */
+  align-items: center;
+  align-self: stretch;
+  gap: 110px;
+}
+
+.allweek-title {
+  color: #313341;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.allweek-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px 15px;
+}
+.cardDay {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 15px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+  border: 0.5px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.36);
+  height: 50px;
+}
+
+.cardDay-Day {
+  color: #303345;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+}
+.cardDay-conteiner {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 15px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.cardDay-tempAndicon {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.cardDay-temp {
+  display: flex;
+  align-items: center;
+  color: #303345;
+  text-align: center;
+  font-family: Inter;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.cardDay-icon > img {
+  display: flex;
+  align-content: center;
+}
+.cardDay.selected {
+  display: flex;
+  flex-direction: row;
+  height: 128px;
+  align-items: center;
+
+  padding: 20px 11px;
+}
+
+.cardDay-conteiner.selected {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+}
+
+.cardDay-conteiner-firstPart {
+  display: flex;
+  /* background-color: #303345; */
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.cardDay-conteiner-secPart {
+  display: flex;
+  padding: 11px 28px;
+  justify-content: space-around;
+  align-items: center;
+  align-self: stretch;
+  /* background-color: #303345; */
+}
+.cardDay-conteiner-secPart > .secPart-icons {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+  color: #303345;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  gap: 8px;
+}

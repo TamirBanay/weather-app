@@ -10,10 +10,8 @@ function App() {
   const [weather, setWeather] = useRecoilState(_weather);
   const [location, setLocation] = useRecoilState(_location);
   const [city, setCity] = useRecoilState(_city);
-
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const fetchWeather = async () => {
     try {
       const response = await fetch(
