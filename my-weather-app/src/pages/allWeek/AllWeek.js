@@ -42,7 +42,6 @@ function AllWeek() {
     setCardDayOpen(index);
   };
 
-  console.log(next7Days);
   useEffect(() => {
     fetchAllWeekWeather();
   }, [city]);

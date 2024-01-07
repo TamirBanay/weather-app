@@ -100,7 +100,7 @@ function Home() {
               type="text"
               value={searchTerm}
               onChange={handleSearchChange}
-              placeholder="serch city"
+              placeholder="Search city"
             />{" "}
           </div>
         ) : (

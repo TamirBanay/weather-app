@@ -6,8 +6,10 @@
 .home-serchCity {
   width: 200px;
   height: 24px;
-  border-radius: 24px;
+  border-radius: 10px;
   font-size: 15px;
+  border: 0px;
+  padding-left: 10px;
 }
 .home-icons {
   display: flex;
