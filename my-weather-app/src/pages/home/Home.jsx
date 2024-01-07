@@ -67,13 +67,13 @@ function Home() {
   const handleTabClick = (tabName) => {
     setDayToDesplay(tabName);
   };
-  const hendlleClouseSerch = () => {
+  const hendlleCloseSerch = () => {
     setSerchIsOpen(!serchIsOpen);
   };
   return (
     <div className="main-home">
       <div className="home-icons">
-        <div className="home-serch-icon" onClick={hendlleClouseSerch}>
+        <div className="home-serch-icon" onClick={hendlleCloseSerch}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -92,7 +92,7 @@ function Home() {
         {serchIsOpen ? (
           <div>
             <input
-             className="home-serchCity"
+              className="home-serchCity"
               type="text"
               value={searchTerm}
               onChange={handleSearchChange}
