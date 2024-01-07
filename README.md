@@ -1,4 +1,4 @@
-# WeatherApp(Mobile App)
+# WeatherApp (Mobile App)
 
 ## Overview
 
