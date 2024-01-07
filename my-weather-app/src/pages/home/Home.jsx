@@ -6,6 +6,7 @@ import windImg from "./images/Vector.png";
 import AirIcon from "@mui/icons-material/Air";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import React, { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [weather, setWeather] = useRecoilState(_weather);
@@ -16,7 +17,11 @@ function Home() {
   const [serchIsOpen, setSerchIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
 
+  const navigateToAllWeek = () => {
+    navigate("/allweek");
+  };
   const handleSearchChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
@@ -102,7 +107,7 @@ function Home() {
         ) : (
           ""
         )}
-        <div className="home-menu-icon">
+        <div className="home-menu-icon" onClick={navigateToAllWeek}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"
