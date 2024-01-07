@@ -11,3 +11,7 @@ export const _city = atom({
   key: "_city",
   default: "tel-aviv",
 });
+export const _next7Days = atom({
+  key: "_next7Days",
+  default: [],
+});

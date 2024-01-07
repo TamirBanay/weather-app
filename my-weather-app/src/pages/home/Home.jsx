@@ -2,7 +2,6 @@ import { useRecoilState } from "recoil";
 import "./Home.css";
 import { _weather, _location, _city } from "../../services/atom";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
-import windImg from "./images/Vector.png";
 import AirIcon from "@mui/icons-material/Air";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import React, { useRef, useEffect, useState } from "react";
@@ -59,7 +58,7 @@ function Home() {
     },
     {
       name: "Wind",
-      data: weather.wind_mph + " km",
+      data: weather.wind_kph + " km/h",
       icon: AirIcon,
     },
     {
@@ -101,7 +100,7 @@ function Home() {
               type="text"
               value={searchTerm}
               onChange={handleSearchChange}
-              placeholder="serch city"
+              placeholder="Search city"
             />{" "}
           </div>
         ) : (
