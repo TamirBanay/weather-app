@@ -3,6 +3,12 @@
   flex-direction: column;
   padding: 18px 10px;
 }
+.home-serchCity {
+  width: 200px;
+  height: 24px;
+  border-radius: 24px;
+  font-size: 15px;
+}
 .home-icons {
   display: flex;
   padding: 12px 15px;
@@ -88,6 +94,7 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  text-align: center;
 }
 .home-cards {
   display: flex;

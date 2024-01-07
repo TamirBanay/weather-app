@@ -1,20 +1,32 @@
 import { useRecoilState } from "recoil";
 import "./Home.css";
-import { _weather, _location } from "../../services/atom";
+import { _weather, _location, _city } from "../../services/atom";
 import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import windImg from "./images/Vector.png";
 import AirIcon from "@mui/icons-material/Air";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
 import React, { useRef, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Home() {
   const [weather, setWeather] = useRecoilState(_weather);
   const [location, setLocation] = useRecoilState(_location);
+  const [city, setCity] = useRecoilState(_city);
   const [hourlyData, setHourlyData] = React.useState([]);
   const [dayToDesplay, setDayToDesplay] = useState(1);
+  const [serchIsOpen, setSerchIsOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  const navigate = useNavigate();
 
-  const scrollContainerRef = useRef(null);
-
+  const navigateToAllWeek = () => {
+    navigate("/allweek");
+  };
+  const handleSearchChange = (event) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+    setCity(value);
+  };
   const formatDateString = (dateString) => {
     const options = { weekday: "short", month: "short", day: "numeric" };
     // Assuming dateString is in the format "YYYY-MM-DD HH:MM"
@@ -23,7 +35,7 @@ function Home() {
   };
   useEffect(() => {
     fetch(
-      `https://api.weatherapi.com/v1/forecast.json?key=c665fbbea5a34e02aa594130240401&days=${dayToDesplay}&q=london`
+      `https://api.weatherapi.com/v1/forecast.json?key=c665fbbea5a34e02aa594130240401&days=${dayToDesplay}&q=${city}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -37,7 +49,7 @@ function Home() {
         setHourlyData(hourlyForecasts);
       })
       .catch((error) => console.error("Error fetching data: ", error));
-  }, [dayToDesplay]);
+  }, [dayToDesplay, city]);
 
   const cardsData = [
     {
@@ -60,11 +72,13 @@ function Home() {
   const handleTabClick = (tabName) => {
     setDayToDesplay(tabName);
   };
-
+  const hendlleCloseSerch = () => {
+    setSerchIsOpen(!serchIsOpen);
+  };
   return (
     <div className="main-home">
       <div className="home-icons">
-        <div className="home-serch-icon">
+        <div className="home-serch-icon" onClick={hendlleCloseSerch}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -80,7 +94,20 @@ function Home() {
             />
           </svg>
         </div>
-        <div className="home-menu-icon">
+        {serchIsOpen ? (
+          <div>
+            <input
+              className="home-serchCity"
+              type="text"
+              value={searchTerm}
+              onChange={handleSearchChange}
+              placeholder="serch city"
+            />{" "}
+          </div>
+        ) : (
+          ""
+        )}
+        <div className="home-menu-icon" onClick={navigateToAllWeek}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="14"

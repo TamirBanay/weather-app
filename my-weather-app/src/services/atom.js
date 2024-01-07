@@ -7,3 +7,7 @@ export const _location = atom({
   key: "_location",
   default: "",
 });
+export const _city = atom({
+  key: "_city",
+  default: "tel-aviv",
+});
