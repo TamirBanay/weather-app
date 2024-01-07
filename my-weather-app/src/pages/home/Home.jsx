@@ -92,10 +92,11 @@ function Home() {
         {serchIsOpen ? (
           <div>
             <input
+             className="home-serchCity"
               type="text"
               value={searchTerm}
               onChange={handleSearchChange}
-              list="city-suggestions"
+              placeholder="serch city"
             />{" "}
           </div>
         ) : (
