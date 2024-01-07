@@ -1,4 +1,3 @@
-import React from "react";
 import { useRecoilState } from "recoil";
 import "./Home.css";
 import { _weather, _location } from "../../services/atom";
@@ -6,9 +5,15 @@ import WaterDropIcon from "@mui/icons-material/WaterDrop";
 import windImg from "./images/Vector.png";
 import AirIcon from "@mui/icons-material/Air";
 import BeachAccessIcon from "@mui/icons-material/BeachAccess";
+import React, { useRef, useEffect, useState } from "react";
+
 function Home() {
   const [weather, setWeather] = useRecoilState(_weather);
   const [location, setLocation] = useRecoilState(_location);
+  const [hourlyData, setHourlyData] = React.useState([]);
+  const [dayToDesplay, setDayToDesplay] = useState(1);
+
+  const scrollContainerRef = useRef(null);
 
   const formatDateString = (dateString) => {
     const options = { weekday: "short", month: "short", day: "numeric" };
@@ -16,23 +21,45 @@ function Home() {
     const date = new Date(dateString.replace(" ", "T")); // Fixes parsing for certain browsers
     return date.toLocaleDateString("en-US", options);
   };
+  useEffect(() => {
+    fetch(
+      `https://api.weatherapi.com/v1/forecast.json?key=c665fbbea5a34e02aa594130240401&days=${dayToDesplay}&q=london`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        const hourlyForecasts = data.forecast.forecastday.flatMap((day) =>
+          day.hour.map((hourData) => ({
+            time: hourData.time,
+            temperature: hourData.temp_c,
+            icon: hourData.condition.icon,
+          }))
+        );
+        setHourlyData(hourlyForecasts);
+      })
+      .catch((error) => console.error("Error fetching data: ", error));
+  }, [dayToDesplay]);
+
   const cardsData = [
     {
       name: "RainFall",
-      data: weather.precip_mm,
+      data: weather.precip_mm + " cm",
       icon: BeachAccessIcon,
     },
     {
       name: "Wind",
-      data: weather.wind_mph,
+      data: weather.wind_mph + " km",
       icon: AirIcon,
     },
     {
       name: "Humidity",
-      data: weather.humidity,
+      data: weather.humidity + " %",
       icon: WaterDropIcon,
     },
   ];
+
+  const handleTabClick = (tabName) => {
+    setDayToDesplay(tabName);
+  };
 
   return (
     <div className="main-home">
@@ -114,7 +141,53 @@ function Home() {
           </div>
         ))}
       </div>
-      <div className="home-today-by-time"></div>
+      <div className="home-today-by-time">
+        <div className="home-hours">
+          <div
+            className={`home-today ${
+              dayToDesplay === 1 ? "active-tab" : "inactive-tab"
+            }`}
+            onClick={() => handleTabClick(1)}
+          >
+            Today
+          </div>
+          <div
+            className={`home-tomorrow ${
+              dayToDesplay === 2 ? "active-tab" : "inactive-tab"
+            }`}
+            onClick={() => handleTabClick(2)}
+          >
+            Tomorrow
+          </div>
+          <div
+            className={`home-next7 ${
+              dayToDesplay === 7 ? "active-tab" : "inactive-tab"
+            }`}
+            onClick={() => handleTabClick(7)}
+          >
+            Next 7 Days
+          </div>
+        </div>
+
+        <div className="home-all-hours">
+          {hourlyData.map((hour, index) => {
+            const timeString = hour.time.split(" ")[1]; // Gets "13:00" from the "YYYY-MM-DD 13:00" format
+
+            return (
+              <div
+                key={index}
+                className={`home-hour ${
+                  hour.isCurrentTime ? "current-time" : ""
+                }`}
+              >
+                <div className="home-hour-time">{timeString}</div>
+                <img className="home-hour-icon" src={hour.icon} />
+                <div className="home-hour-temp">{hour.temperature}°C</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }

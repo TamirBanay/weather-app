@@ -31,8 +31,8 @@ function App() {
       setIsLoading(false);
     }
   };
-  console.log(location);
-  console.log(weather);
+  // console.log(location);
+  // console.log(weather);
 
   useEffect(() => {
     fetchWeather();
