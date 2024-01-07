@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     fetchWeather();
-  }, []);
+  }, [city]);
   return (
     <div className="app">
       <HashRouter>
