@@ -28,10 +28,15 @@ function Home() {
   };
   const formatDateString = (dateString) => {
     const options = { weekday: "short", month: "short", day: "numeric" };
-    // Assuming dateString is in the format "YYYY-MM-DD HH:MM"
-    const date = new Date(dateString.replace(" ", "T")); // Fixes parsing for certain browsers
+    const date = new Date(dateString);
+
+    if (isNaN(date)) {
+      console.error("Invalid date string:", dateString);
+      return "Invalid Date";
+    }
     return date.toLocaleDateString("en-US", options);
   };
+
   useEffect(() => {
     fetch(
       `https://api.weatherapi.com/v1/forecast.json?key=c665fbbea5a34e02aa594130240401&days=${dayToDesplay}&q=${city}`
