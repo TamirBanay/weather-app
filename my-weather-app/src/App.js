@@ -15,7 +15,7 @@ function App() {
   const fetchWeather = async () => {
     try {
       const response = await fetch(
-        `http://api.weatherapi.com/v1/current.json?key=c665fbbea5a34e02aa594130240401&q=${city}&aqi=no`
+        `https://api.weatherapi.com/v1/current.json?key=c665fbbea5a34e02aa594130240401&q=${city}&aqi=no`
       );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
