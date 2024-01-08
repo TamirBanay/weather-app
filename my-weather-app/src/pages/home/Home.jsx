@@ -158,7 +158,7 @@ function Home() {
               {data.icon ? (
                 <data.icon
                   sx={{
-                    background: "#fff",
+                    background: "rgba(255, 255, 255, 0.5)",
                     borderRadius: "8px",
                     padding: "5px",
                     boxShadow:

@@ -110,7 +110,7 @@ function AllWeek() {
                       <div className="secPart-icons">
                         <BeachAccessIcon
                           sx={{
-                            background: "#fff",
+                            background: "rgba(255, 255, 255, 0.5)",
                             borderRadius: "8px",
                             padding: "5px",
                             boxShadow:
@@ -123,7 +123,7 @@ function AllWeek() {
                       <div className="secPart-icons">
                         <AirIcon
                           sx={{
-                            background: "#fff",
+                            background: "rgba(255, 255, 255, 0.5)",
                             borderRadius: "8px",
                             padding: "5px",
                             boxShadow:
@@ -135,7 +135,7 @@ function AllWeek() {
                       <div className="secPart-icons">
                         <WaterDropIcon
                           sx={{
-                            background: "#fff",
+                            background: "rgba(255, 255, 255, 0.5)",
                             borderRadius: "8px",
                             padding: "5px",
                             boxShadow:
@@ -190,7 +190,7 @@ function AllWeek() {
                       <div className="secPart-icons">
                         <BeachAccessIcon
                           sx={{
-                            background: "#fff",
+                            background: "rgba(255, 255, 255, 0.5)",
                             borderRadius: "8px",
                             padding: "5px",
                             boxShadow:
@@ -203,7 +203,7 @@ function AllWeek() {
                       <div className="secPart-icons">
                         <AirIcon
                           sx={{
-                            background: "#fff",
+                            background: "rgba(255, 255, 255, 0.5)",
                             borderRadius: "8px",
                             padding: "5px",
                             boxShadow:
@@ -215,7 +215,7 @@ function AllWeek() {
                       <div className="secPart-icons">
                         <WaterDropIcon
                           sx={{
-                            background: "#fff",
+                            background: "rgba(255, 255, 255, 0.5)",
                             borderRadius: "8px",
                             padding: "5px",
                             boxShadow:
