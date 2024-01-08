@@ -1,4 +1,4 @@
-# WeatherApp (Mobile App)
+# Weather App (Mobile App)
 Website address: https://tamirbanay.github.io/weather-app/#/
 
 
