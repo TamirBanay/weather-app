@@ -1,5 +1,14 @@
+html,
 body {
-  height: 700px;
-  width: fit-content;
-  background: linear-gradient(120deg, #fee3bc 23.22%, #f39876 99.52%);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+body {
+  background: linear-gradient(120deg, #fee3bc 0%, #f39876 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* This can help with keeping the background fixed during scroll */
+  background-size: cover;
+  min-height: 100vh;
 }
