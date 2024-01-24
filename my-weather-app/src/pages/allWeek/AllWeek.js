@@ -20,10 +20,8 @@ function AllWeek() {
       }
       const data = await response.json();
       if (data && data.forecast && data.forecast.forecastday) {
-        // This array has the forecast for the next 7 days
         const next7DaysForecast = data.forecast.forecastday;
         setNext7Days(next7DaysForecast);
-        // Process the forecast data as needed for your application
       } else {
         throw new Error("Forecast data is not available");
       }

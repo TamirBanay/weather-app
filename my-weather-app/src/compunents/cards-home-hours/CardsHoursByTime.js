@@ -61,8 +61,7 @@ function CardsHours() {
 
       <div className="home-all-hours">
         {hourlyData.map((hour, index) => {
-          const timeString = hour.time.split(" ")[1]; // Gets "13:00" from the "YYYY-MM-DD 13:00" format
-
+          const timeString = hour.time.split(" ")[1]; 
           return (
             <div
               key={index}
